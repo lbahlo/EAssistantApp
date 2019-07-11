@@ -1,0 +1,28 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- <div class='screenSize'>{{screenSize}}</div> -->
+
+<div class='bot-container'>
+    <div class='bot-header-grid'>
+        <h1 class='bot-header-title'>{{title}}</h1>
+        <!-- <div class='bot-header-help-container'>
+            <img class='bot-header-help-cell' src='assets/images/help.png' alt='Help' (click)='help()'>
+        </div> -->
+        <div class='bot-header-help'>
+            <img [src]="showHelp ? 'assets/images/helpOpen.png' : 'assets/images/helpClose.png'" alt='Help' (click)='help()' />
+        </div>
+    </div>
+    <!-- body -->
+    <div class=bot-body-grid>
+        <div class="bodyLeft">
+            <app-message-list [messages]="messages"></app-message-list>
+        </div>
+        <div #rightSlideBar class="bodyRight">
+            <!-- <app-pdf-viewer></app-pdf-viewer> -->
+            <app-help></app-help>
+        </div>
+    </div>
+
+    <div class="bot-footer">
+        <app-message-send [messages]="messages"></app-message-send>
+    </div>
+</div>

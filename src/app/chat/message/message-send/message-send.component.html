@@ -1,0 +1,59 @@
+<div class="send-container">
+
+  <div class='send-message-label'>
+    <label for="nameField">Your Message</label>
+  </div>
+
+  <div class="send-grid">
+    <div class="microphone-cell">
+      <div class="microphone-container ready" (click)="startListenButton ? activateSpeechSearch() : deActivateSpeechSearch()">
+        <a href="#" id="start">
+          <img [src]="startListenButton ? 'assets/images/micNotActive.png' : 'assets/images/micActive1.png'" alt="Tap me to speak" />
+        </a>
+      </div>
+    </div>
+    <input class="message-cell" [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text">
+    <div class="send-cell">
+      <button class="sendButton" #sendButton (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+
+</div>
+<!--
+      
+        <div class="row">
+          <div class="column-10 mic">
+              <div class="ready" (click)="startListenButton ? activateSpeechSearch() : deActivateSpeechSearch()" >
+                <a href="#" id="start">
+                  <img [src]="startListenButton ? 'assets/images/micNotActive.png' : 'assets/images/micActive1.png'" alt="Tap me to speak" />
+                </a>
+                </div>
+              <div class="listening"><span class="listening-1">.</span><span class="listening-2">.</span><span class="listening-3">.</span></div>
+          </div>
+           <input class="column-60" [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text">
+           <div class="column-20" >
+              <button class="sendButton" #sendButton (click)="sendMessage()">Send</button>
+          </div>
+      </div>  
+
+
+ -->
+<!-- <input type="text" class="form-control chatinput" (keyup.enter)="sendMessage()" [(ngModel)]="message.content"/> -->
+
+
+
+
+
+
+
+<!-- 
+        <button class="btn btn-info btn-fill btn-wd" name="btnActivateSpeechSearch" 
+          id="btnActivateSpeechSearch" (click)="activateSpeechSearch()"
+          [disabled]="!startListenButton">
+          Start Listening
+        </button>
+        <button class="btn btn-info btn-fill btn-wd" name="btnDeactivateSpeechSearch" 
+          id="btnDeactivateSpeechSearch" (click)="deActivateSpeechSearch()"
+          [disabled]="startListenButton">
+          Stop Listening
+        </button> -->

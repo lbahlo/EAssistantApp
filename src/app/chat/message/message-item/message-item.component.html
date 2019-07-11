@@ -1,0 +1,19 @@
+ 
+ <!-- <li class="list-group-item"> -->
+     <div *ngIf="message.sentBy === 'user'">
+            <time>{{message.displayTimestamp}}</time>
+     </div> 
+      <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot','to':   message.sentBy === 'user' }">
+        <div class="message">
+              <div class="messageGrid">
+                <div class="avatar-container"  class="avatar-container" [ngClass]="{'from': message.sentBy === 'bot', 'to': message.sentBy === 'user'}" > 
+                    <img [src]="message.avatar" class="avatarCell" [ngClass]="{'from': message.sentBy === 'bot', 'to': message.sentBy === 'user'}" />
+                </div>
+                <time class="timeCell" [ngClass]="{ 'from': message.sentBy === 'bot', 'to': message.sentBy === 'user' }"></time> 
+                <div class="messageCell" [ngClass]="{ 'from': message.sentBy === 'bot', 'to': message.sentBy === 'user' }">
+                    {{message.content}}
+                </div>
+            </div>
+        </div>
+    </div> 
+<!-- </li> -->

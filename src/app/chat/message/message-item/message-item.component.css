@@ -1,0 +1,102 @@
+/*
+    grid-template-areas: 
+      "r1a r1b r1c"
+      "r2a r2b r2c";
+      .messageGrid {
+    height:100%;
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: [c1] 10%  [c2] 70% [c3] 10%; 
+    grid-template-rows: [r1] 10% [r2] 40% [r3] 20%; ; 
+    grid-gap: .1em .1em;
+}
+*/
+
+.messageGrid {
+  height: 100%;
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: [c1] 16% [c2] 69% [c3] 16%;
+  grid-template-rows: [r1] 90%;
+  grid-gap: 0.1em 0.1em;
+}
+.avatar-container.from {
+  width: 5rem;
+  height: 5rem;
+  align-self: center;
+}
+.avatar-container.to {
+  width: 4rem;
+  height: 4rem;
+  align-self: center;
+}
+.avatarCell.from {
+  grid-area: 1 / 1 / 1 / 1;
+  align-items: center;
+}
+
+.avatarCell.to {
+  grid-area: 1 / 3 / 1 / 3;
+  align-items: center;
+}
+
+.timeCell.to {
+  grid-area: 1 / 1 / 1 / 1;
+  justify-self: left;
+  margin-top: 20px;
+}
+
+.timeCell.from {
+  grid-area: 1 / 3 / span 1 / span 1;
+  justify-self: right;
+  margin-top: 20px;
+}
+
+.messageCell.to {
+  grid-area: 1 / 2 / span 1 / span 1;
+  margin: 1em;
+  text-align: right;
+}
+
+.messageCell.from {
+  grid-area: 1 / 2 / span 1 / span 1;
+  margin: 1em;
+}
+
+/* 
+   margin: 0 15px 10px;
+   padding: 15px 20px;
+       display: flex;
+*/
+
+/* position: relative; */
+.message {
+  border-radius: 50px;
+  font-weight: bold;
+  margin: 0 15px 10px;
+}
+
+/*
+    text-align: right;
+     margin-left: 100px;
+*/
+.message.to {
+  flex-direction: row;
+  background-color: #2095fe;
+  color: #fff;
+  width: 90%;
+  margin-left: 10%;
+}
+/*  
+  margin-right: 100px;
+  */
+.message.from {
+  flex-direction: row-reverse;
+  background-color: #e5e4e9;
+  color: #363636;
+  width: 90%;
+}
+.message.to + .message.to,
+.message.from + .message.from {
+  margin-top: -10px;
+}

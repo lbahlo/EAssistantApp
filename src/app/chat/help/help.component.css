@@ -1,0 +1,10 @@
+.help-container {
+  overflow-y: auto;
+  width: 50rem;
+  height: 50rem;
+}
+
+
+h4 {
+  font-weight: bold !important;
+}

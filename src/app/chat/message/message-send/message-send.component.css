@@ -1,0 +1,102 @@
+.send-grid {
+  display: grid;
+  flex-grow: 0;
+  flex-shrink: 0;
+  grid-template-columns: 6% auto 20%;
+  grid-template-rows: auto;
+  grid-template-areas: "microphone message send";
+  grid-gap: 0.1em 0.1em;
+}
+.microphone-cell {
+  grid-area: microphone;
+}
+.message-cell {
+  grid-area: message;
+}
+.send-cell {
+  grid-area: send;
+}
+
+.send-message-label {
+  margin-left: 1rem;
+}
+
+/* for larger screens start */
+@media screen and (min-width: 28.75em) {
+  .send-grid {
+    display: grid;
+    flex-grow: 0;
+    flex-shrink: 0;
+    grid-template-columns: 5% auto 5%;
+    grid-template-rows: auto;
+    grid-template-areas: "microphone message send";
+    grid-gap: 0.1em 0.1em;
+    margin-left: 3rem;
+    margin-right: 10rem;
+  }
+
+  .send-message-label {
+    margin-left: 3.5rem;
+    text-align: left;
+  }
+
+  .microphone-container {
+    margin-left: 2rem;
+  }
+}
+
+/* for larger screens end */
+
+.send-container {
+  margin-top: 1rem;
+}
+
+.microphone-container {
+  margin-left: 0rem;
+}
+
+/* .mic {
+  margin-top: 6px;
+} */
+
+.mic .listening {
+  margin-top: 6px;
+  font-size: 36px;
+  color: #3498db;
+  display: none;
+}
+
+@keyframes listeningframes {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0.3;
+  }
+  66% {
+    opacity: 0.3;
+  }
+}
+
+.mic .listening-1 {
+  animation: listeningframes 0.6s 0s infinite;
+}
+
+.mic .listening-2 {
+  animation: listeningframes 0.6s 0.2s infinite;
+}
+
+.mic .listening-3 {
+  animation: listeningframes 0.6s 0.4s infinite;
+}
+
+/* .sendButton .button, button, input[type='button'], input[type='reset'], input[type='submit'] {
+    background-color: #1C8071;
+    border: 0.1rem solid #1C8071;
+    margin: 0px 3px 3px 3px;
+  } */
+
+.sendButton {
+  margin: 0px 3px 3px 3px;
+}

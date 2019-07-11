@@ -1,0 +1,120 @@
+/*  */
+.screenSize {
+  text-align: left;
+  height: 0rem;
+}
+/* default size is for mobile */
+
+/* height: 75%;
+  width: 98vw;
+  height: 98vh;
+
+*/
+.bot-container {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.bot-header-grid {
+  background-color: #3d4145;
+  color: #ffffff;
+  flex-grow: 0;
+  flex-shrink: 0;
+  text-align: center;
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: auto 15%;
+  grid-template-rows: auto;
+  grid-template-areas: "bot-header-title bot-header-help";
+  grid-gap: 0.1em 0.1em;
+}
+
+.bot-header-title {
+  grid-area: bot-header-title;
+  grid-area: bot-header-title / bot-header-title / bot-header-help /
+    bot-header-help;
+  align-self: center;
+  margin: 0;
+  font-size: 3rem;
+}
+
+.bot-footer {
+  height: 12vh;
+}
+
+/* .bot-header-help-container {
+  width: 5rem;
+  height: 5rem;
+  align-self: center;
+} */
+
+.bot-header-help {
+  grid-area: bot-header-help;
+  width: 5rem;
+  height: 5rem;
+  align-items: left;
+}
+
+/* media adjustments for larger screens, default is for mobile
+/* @media screen and (min-width: 40.5em) and (min-height: 256px) { */
+/* height: 100% */
+@media screen and (min-width: 28.75em) {
+  .bot-container {
+    height: 98vh;
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+
+  .bot-header-grid {
+    background-color: #3d4145;
+    color: #ffffff;
+    flex-grow: 0;
+    flex-shrink: 0;
+    text-align: center;
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: auto 8%;
+    grid-template-rows: 6vh; /*auto; */
+    grid-template-areas: "bot-header-title bot-header-help";
+    grid-gap: 0.1em 0.1em;
+  }
+
+  .bot-body-grid {
+    display: grid;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 82vh;
+    grid-template-areas: "bodyLeft bodyRight";
+    grid-gap: 0.1em 0.1em;
+  }
+
+  .bodyLeft {
+    grid-area: bodyLeft;
+  }
+
+  .bodyRight {
+    grid-area: bodyRight;
+  }
+}
+/* end media adjustments */
+
+.bot-body-grid {
+  display: grid;
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 82vh;
+  grid-template-areas: "bodyLeft bodyLeft";
+  grid-gap: 0.1em 0.1em;
+}
+
+.bodyLeft {
+  grid-area: bodyLeft;
+}
+
+.bodyRight {
+  grid-area: bodyRight;
+}
