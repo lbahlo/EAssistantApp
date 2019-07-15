@@ -12,7 +12,7 @@ import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/scan";
 import { SpeechRecognitionService } from "../../../services/speech-recognition.service";
 import { Message } from "../../../models/message";
-import { micNotActiveImg, micActive1Img } from '../../../../assets/image-const/imageConsts'
+import { ImageService } from "../../../services/image/image.service";
 
 @Component({
   selector: "app-message-send",
@@ -38,6 +38,7 @@ export class MessageSendComponent implements OnInit, OnDestroy {
 
   constructor(
     public chat: ChatService,
+    private imageService:ImageService,
     private sanitizer: DomSanitizer,
     private speechRecognitionService: SpeechRecognitionService
   ) {
@@ -47,11 +48,6 @@ export class MessageSendComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.micNotActiveImgSource = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${micNotActiveImg}`);
-    this.micActive1ImgSource = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${micActive1Img}`);
-
-
-
     // this.messages = this.chat.conversation;
     // this was cuasing too many sendMessage executions
     // DialogFlow setup: appends to array after each new message is added to feedSource

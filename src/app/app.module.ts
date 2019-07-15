@@ -7,10 +7,12 @@ import { AppComponent } from "./app.component";
 import { ChatModule } from "./chat/chat.module";
 import { LogModule } from "./services/log/log.module";
 
+import { ImageService } from "./services/image/image.service";
+ 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, ChatModule, FormsModule, LogModule, HttpModule],
-  providers: [],
+  providers: [ ImageService ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

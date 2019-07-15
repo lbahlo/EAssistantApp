@@ -8,7 +8,7 @@
             <img class='bot-header-help-cell' src='assets/images/help.png' alt='Help' (click)='help()'>
         </div> -->
          <div class='bot-header-help'>
-            <img [src]="showHelp ? helpOpenImgSource : helpCloseImgSource" alt='Help' (click)='help()' />
+            <img [src]="showHelp ? imageService.getImage('helpOpenImgSource') : imageService.getImage('helpCloseImgSource')" alt='Help' (click)='help()' />
         </div>
     </div>
     <!-- body -->
