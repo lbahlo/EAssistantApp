@@ -8,7 +8,7 @@
     <div class="microphone-cell">
       <div class="microphone-container ready" (click)="startListenButton ? activateSpeechSearch() : deActivateSpeechSearch()">
         <a href="#" id="start">
-          <img [src]="startListenButton ? 'assets/images/micNotActive.png' : 'assets/images/micActive1.png'" alt="Tap me to speak" />
+          <img [src]="startListenButton ? micNotActiveImgSource : active1ImgSource" alt="Tap me to speak" />
         </a>
       </div>
     </div>

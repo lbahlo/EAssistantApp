@@ -7,8 +7,8 @@
         <!-- <div class='bot-header-help-container'>
             <img class='bot-header-help-cell' src='assets/images/help.png' alt='Help' (click)='help()'>
         </div> -->
-        <div class='bot-header-help'>
-            <img [src]="showHelp ? 'assets/images/helpOpen.png' : 'assets/images/helpClose.png'" alt='Help' (click)='help()' />
+         <div class='bot-header-help'>
+            <img [src]="showHelp ? helpOpenImgSource : helpCloseImgSource" alt='Help' (click)='help()' />
         </div>
     </div>
     <!-- body -->

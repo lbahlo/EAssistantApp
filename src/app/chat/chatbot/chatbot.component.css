@@ -50,8 +50,8 @@
 
 .bot-header-help {
   grid-area: bot-header-help;
-  width: 5rem;
-  height: 5rem;
+  width: 3 rem;
+  height: 3 rem;
   align-items: left;
 }
 
@@ -85,7 +85,7 @@
     flex-shrink: 0;
 
     grid-template-columns: 1fr auto;
-    grid-template-rows: 82vh;
+    grid-template-rows: 80vh; 
     grid-template-areas: "bodyLeft bodyRight";
     grid-gap: 0.1em 0.1em;
   }
@@ -106,8 +106,8 @@
   flex-shrink: 0;
 
   grid-template-columns: 1fr auto;
-  grid-template-rows: 82vh;
-  grid-template-areas: "bodyLeft bodyLeft";
+  grid-template-rows: 80vh;
+  grid-template-areas: "bodyLeft bodyRight";
   grid-gap: 0.1em 0.1em;
 }
 

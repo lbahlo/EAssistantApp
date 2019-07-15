@@ -7,10 +7,12 @@ import {
   OnDestroy
 } from "@angular/core";
 import { ChatService } from "../../chat.service";
+import { DomSanitizer } from '@angular/platform-browser';
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/scan";
 import { SpeechRecognitionService } from "../../../services/speech-recognition.service";
 import { Message } from "../../../models/message";
+import { micNotActiveImg, micActive1Img } from '../../../../assets/image-const/imageConsts'
 
 @Component({
   selector: "app-message-send",
@@ -20,6 +22,9 @@ import { Message } from "../../../models/message";
 export class MessageSendComponent implements OnInit, OnDestroy {
   @ViewChild("sendButton")
   sendButtonRef: ElementRef;
+
+  micNotActiveImgSource;
+  micActive1ImgSource;
 
   // SpeechRecognition variables
   startListenButton: boolean;
@@ -33,6 +38,7 @@ export class MessageSendComponent implements OnInit, OnDestroy {
 
   constructor(
     public chat: ChatService,
+    private sanitizer: DomSanitizer,
     private speechRecognitionService: SpeechRecognitionService
   ) {
     this.startListenButton = true;
@@ -41,6 +47,11 @@ export class MessageSendComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.micNotActiveImgSource = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${micNotActiveImg}`);
+    this.micActive1ImgSource = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${micActive1Img}`);
+
+
+
     // this.messages = this.chat.conversation;
     // this was cuasing too many sendMessage executions
     // DialogFlow setup: appends to array after each new message is added to feedSource

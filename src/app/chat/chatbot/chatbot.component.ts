@@ -7,11 +7,13 @@ import {
   OnDestroy
 } from "@angular/core";
 import { ChatService } from "../chat.service";
+import { DomSanitizer } from '@angular/platform-browser';
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/scan";
 import { SpeechRecognitionService } from "../../services/speech-recognition.service";
 import { Message } from "../../models/message";
 import { WindowRef } from "../../services/window-ref.service";
+import { helpOpenImg, helpCloseImg, micActive1Img } from '../../../assets/image-const/imageConsts'
 
 // import { HelpComponent } from "../help/help.component";
 
@@ -25,18 +27,26 @@ export class ChatbotComponent implements OnInit, AfterViewInit {
   rightSliderBarEl: ElementRef;
   public screenSize: string;
 
+  helpOpenImgSource;
+  helpCloseImgSource;
+
+
   // DialogFlow variables
   messages: Observable<Message[]>;
   title = "NAPE Assistant";
   showHelp = false;
 
   // constructor(public chat: ChatService, public help: HelpService) {}
-  constructor(public chat: ChatService, private windowRef: WindowRef) {}
+  constructor(public chat: ChatService, private windowRef: WindowRef, private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
     this.messages = this.chat.conversation;
     this.attachWindowResizeHandler();
+    this.helpOpenImgSource = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${helpOpenImg}`);
+    this.helpCloseImgSource = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${helpCloseImg}`);
+
   }
+
 
   ngAfterViewInit() {
     if (this.rightSliderBarEl) {
@@ -50,6 +60,9 @@ export class ChatbotComponent implements OnInit, AfterViewInit {
       this.showHelp
         ? (this.rightSliderBarEl.nativeElement.style.width = "auto")
         : (this.rightSliderBarEl.nativeElement.style.width = 0);
+      this.showHelp
+        ? (this.rightSliderBarEl.nativeElement.style.height = "auto")
+        : (this.rightSliderBarEl.nativeElement.style.height = 0);
     }
   }
 
