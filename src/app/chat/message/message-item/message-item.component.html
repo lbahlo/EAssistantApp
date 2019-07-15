@@ -7,7 +7,7 @@
         <div class="message">
               <div class="messageGrid">
                 <div class="avatar-container"  class="avatar-container" [ngClass]="{'from': message.sentBy === 'bot', 'to': message.sentBy === 'user'}" > 
-                    <img [src]="message.avatar" class="avatarCell" [ngClass]="{'from': message.sentBy === 'bot', 'to': message.sentBy === 'user'}" />
+                    <img [src]="imageService.getImage(message.avatar)" class="avatarCell" [ngClass]="{'from': message.sentBy === 'bot', 'to': message.sentBy === 'user'}" />
                 </div>
                 <time class="timeCell" [ngClass]="{ 'from': message.sentBy === 'bot', 'to': message.sentBy === 'user' }"></time> 
                 <div class="messageCell" [ngClass]="{ 'from': message.sentBy === 'bot', 'to': message.sentBy === 'user' }">

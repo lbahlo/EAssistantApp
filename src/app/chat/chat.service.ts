@@ -8,6 +8,7 @@ import { Observable } from "rxjs/Observable";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import { Message } from "../models/message";
 import { LogService } from "../services/log/log.service";
+import { ImageService } from "../services/image/image.service";
 
 @Injectable()
 export class ChatService {
@@ -16,14 +17,14 @@ export class ChatService {
 
   conversation = new BehaviorSubject<Message[]>([]);
 
-  constructor(public logger: LogService) {}
+  constructor(public logger: LogService, public imageService: ImageService) {}
 
   // Sends and receives messages via DialogFlow
   converse(msg: string) {
     const userMessage = new Message(
       msg,
       "user",
-      "assets/images/user.png",
+      'userImgSource',
       new Date()
     );
     this.update(userMessage);
@@ -34,7 +35,7 @@ export class ChatService {
       const botMessage = new Message(
         speech,
         "bot",
-        "assets/images/bot1.png",
+        "bot1ImgSource",
         new Date()
       );
       this.update(botMessage);
